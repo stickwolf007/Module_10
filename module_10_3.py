@@ -30,20 +30,19 @@ class Bank:
             time.sleep(0.001)
 
 
-# Создание объекта класса Bank
+
 bk = Bank()
 
-# Создание потоков для методов deposit и take
 th1 = threading.Thread(target=bk.deposit)
 th2 = threading.Thread(target=bk.take)
 
-# Запуск потоков
+
 th1.start()
 th2.start()
 
-# Ожидание завершения потоков
+
 th1.join()
 th2.join()
 
-# Итоговый баланс
+
 print(f'Итоговый баланс: {bk.balance}')
